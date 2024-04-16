@@ -1,0 +1,24 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: nginx-demo-issuer
+  namespace: nginx-demo
+  labels:
+    app: nginx-demo
+spec:
+  acme:
+    email: brandon@brandonwest.tech
+    preferredChain: ""
+    privateKeySecretRef:
+      name: nginx-demo-letsencrypt-prod
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - dns01:
+        cloudflare:
+          apiTokenSecretRef:
+            key: api-token
+            name: cloudflare-api-token-secret
+          email: brandon@brandonwest.tech
+      selector:
+        dnsNames:
+        - nginx-demo.diagon.cloud
