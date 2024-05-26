@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nginx-demo
-  namespace: nginx-circ-demo
+  namespace: circ-nginx-demo
 spec:
   ingressClassName: nginx
   rules:
