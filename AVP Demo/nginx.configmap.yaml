@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: nginx-demo
 data:
-  nginx.conf |
+  nginx.conf: |
     events {}
     env MY_SECRET;
     http {
