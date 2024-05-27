@@ -7,12 +7,12 @@ data:
     events {}
     env MY_SECRET;
     http {
-      server {
-        listen 8080;
-        location / {
-          set_by_lua \$my_secret ' return os.getenv("MY_SECRET")';
-          return 200 \$my_secret;
+        server {
+            listen 8080;
+            location / {
+                set_by_lua \$my_secret 'return os.getenv("MY_SECRET")';
+                return 200 \$my_secret;
+            }
         }
-      }
     }
 
