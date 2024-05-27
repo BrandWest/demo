@@ -21,7 +21,8 @@ spec:
         ports:
         - containerPort: 8080
         envFrom:
-        - secretName: my-nginx
+        - secretRef: 
+            name: my-nginx
         volumeMounts:
         - name: nginx-conf
           mountPath: /usr/local/openresty/nginx/conf/
